@@ -37,7 +37,8 @@ html {
     align-items: center;
     justify-content: center;
     color: rgb(255, 255, 255);
-    padding: 6px;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .contenedor-cuadricula{
