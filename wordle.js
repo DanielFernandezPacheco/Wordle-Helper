@@ -19,37 +19,36 @@ function cambiarEstado(div) {
 
 }
 
-function comprobar(){
-    var boxesPalabra = document.getElementById("box-"+lastBoxId).parentElement.querySelectorAll(".box");
+function comprobar() {
+    var boxesPalabra = document.getElementById("box-" + lastBoxId).parentElement.querySelectorAll(".box");
     let pos = 0;
 
-    if(lastBoxId%5 == "4"){
-        boxesPalabra.forEach(function(box){
+    if (lastBoxId % 5 == 0) {
+        boxesPalabra.forEach(function (box) {
             let letra = box.innerHTML;
-            if(!noPresentes.includes(letra)){
+            if (!noPresentes.includes(letra)) {
                 if (box.classList.contains("bg-absent") && (!presentes.includes(letra) || !correctas.include(letra))) {
                     fallo(letra);
-                    document.getElementById("letra-"+letra).classList.remove("bg-key");
-                    document.getElementById("letra-"+letra).className += " bg-absent text-white";
+                    document.getElementById("letra-" + letra).classList.remove("bg-key");
+                    document.getElementById("letra-" + letra).className += " bg-absent text-white";
                 }
                 else if (box.classList.contains("bg-present") && !correctas.includes(letra)) {
                     posicion_incorrecta(letra, pos);
-                    document.getElementById("letra-"+letra).classList.remove("bg-key");
-                    document.getElementById("letra-"+letra).className += " bg-present text-white";
+                    document.getElementById("letra-" + letra).classList.remove("bg-key");
+                    document.getElementById("letra-" + letra).className += " bg-present text-white";
                 }
                 else if (box.classList.contains("bg-correct")) {
                     acierto(letra, pos);
-                    document.getElementById("letra-"+letra).classList.remove("bg-key");
-                    document.getElementById("letra-"+letra).classList.remove("bg-present");
-                    document.getElementById("letra-"+letra).className += " bg-correct text-white";
+                    document.getElementById("letra-" + letra).classList.remove("bg-key");
+                    document.getElementById("letra-" + letra).classList.remove("bg-present");
+                    document.getElementById("letra-" + letra).className += " bg-correct text-white";
                 }
             }
             pos++;
         })
         palabraComprobada = true;
-    }  
-    console.log(palabras);
-    document.getElementById("num-palabras").innerHTML = palabras.length;
+        document.getElementById("num-palabras").innerHTML = palabras.length;
+    }
 }
 
 function eliminarColor(div) {
@@ -82,7 +81,7 @@ function isLetter(str) {
 }
 
 function anadirLetra(letra) {
-    if(lastBoxId%5 != 0 || palabraComprobada){//cambiar
+    if (lastBoxId % 5 != 0 || palabraComprobada) {//cambiar
         if (lastBoxId < 30) {
             id = "box-" + ++lastBoxId;
             box = document.getElementById(id);
@@ -90,6 +89,9 @@ function anadirLetra(letra) {
             box.classList.add("bg-absent");
             palabraComprobada = false;
         }
+    }
+    if(lastBoxId % 5 == 0 && palabraComprobada) {
+        palabraComprobada = false
     }
 }
 
@@ -99,6 +101,9 @@ function eliminarLetra() {
         box = document.getElementById(id);
         box.innerHTML = "";
         eliminarColor(box);
+        if (lastBoxId % 5 == 0) {
+            palabraComprobada = true
+        }
     }
 }
 
@@ -115,7 +120,7 @@ document.getElementById("num-palabras").innerHTML = palabras.length;
 
 function acierto(letra, pos) {
     correctas.push(letra);
-    presentes = presentes.filter(function(a) { return a != letra});
+    presentes = presentes.filter(function (a) { return a != letra });
 
     palabras = palabras.filter(function (palabra) {
         return palabra[pos] == letra;
