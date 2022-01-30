@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Wordle Solver</title>
+</head>
+
+<body>
+
+    <!--
+        bg-key
+        bg-absent
+        bg-correct
+        bg-present
+        text-white
+    -->
+
+    <div class="dark:bg-dark dark:text-neutral-100 min-h-full">
+        <div class="wrapper container mx-auto flex flex-col w-full max-w-lg">
+            <header
+                class="relative flex flex-row justify-between items-center p-1 px-3 lg:px-1 h-[50px] my-auto border-b border-neutral-300 dark:border-neutral-700">
+
+                <div class="absolute right-0 left-0 text-center">
+                    <h1 class="uppercase font-bold text-xl tiny:text-3xl sm:text-4xl tracking-wider">Wordle Helper</h1>
+                </div>
+            </header>
+            <main class="flex flex-auto justify-center items-center">
+
+                <div class="grid grid-rows-6 relative gap-1 p-3 box-border w-full h-full max-w-[350px] max-h-[420px]">
+                    <div class="grid grid-cols-5 gap-1 w-full">
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-1" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-2" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-3" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-4" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-5" onclick="cambiarEstado(this)"></div>
+                    </div>
+                    <div class="grid grid-cols-5 gap-1 w-full">
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-6" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-7" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-8" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-9" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-10" onclick="cambiarEstado(this)"></div>
+                    </div>
+                    <div class="grid grid-cols-5 gap-1 w-full">
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-11" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-12" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-13" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-14" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-15" onclick="cambiarEstado(this)"></div>
+                    </div>
+                    <div class="grid grid-cols-5 gap-1 w-full">
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-16" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-17" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-18" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-19" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-20" onclick="cambiarEstado(this)"></div>
+                    </div>
+                    <div class="grid grid-cols-5 gap-1 w-full">
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-21" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-22" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-23" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-24" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-25" onclick="cambiarEstado(this)"></div>
+                    </div>
+                    <div class="grid grid-cols-5 gap-1 w-full">
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-26" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-27" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-28" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-29" onclick="cambiarEstado(this)"></div>
+                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
+                            id="box-30" onclick="cambiarEstado(this)"></div>
+                    </div>
+
+                </div>
+                Palabras: <span id="num-palabras"></span>
+            </main>
+            <div class="flex flex-col container w-full max-w-lg pb-2 md:pb-5 px-2 mx-auto gap-2">
+                <div class="flex gap-1"><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="q"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-q">q</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="w"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-w">w</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="e"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-e">e</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="r"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-r">r</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="t"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-t">t</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="y"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-y">y</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="u"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-u">u</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="i"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-i">i</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="o"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-o">o</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="p"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-p">p</button></div>
+                <div class="flex gap-1"><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="a"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-a">a</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="s"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-s">s</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="d"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-d">d</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="f"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-f">f</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="g"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-g">g</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="h"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-h">h</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="j"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-j">j</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="k"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-k">k</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="l"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-l">l</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="ñ"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-ñ">ñ</button></div>
+                <div class="flex gap-1">
+                    <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key"
+                        aria-label="procesar palabra" onclick="comprobar()">check</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="z"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-z">z</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="x"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-x">x</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="c"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-c">c</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="v"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-v">v</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key"
+                        aria-label="b"  onclick="anadirLetra(this.innerHTML)" id="letra-b">b</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="n"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-n">n</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="m"
+                        onclick="anadirLetra(this.innerHTML)" id="letra-m">m</button><button
+                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-1 text-sm bg-key"
+                        aria-label="borrar letra" onclick="eliminarLetra()"><svg xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"
+                            class="h-6 w-6 ml-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z">
+                            </path>
+                        </svg></button></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./wordle.js"></script>
+</body>
+
+</html>
