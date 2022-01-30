@@ -24,7 +24,19 @@ html {
     height: 100%;
     border-color: rgb(202, 202, 202);
     border-width: 2px;
+}
 
+.icono-mostrar{
+    width: 15%;
+    height: 100%;
+    background-color: rgb(106, 170, 100);   
+    border-radius: 5px;
+    border-width: 3px;
+    border-color: rgb(182, 182, 182);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
 }
 body {
     margin: 0;

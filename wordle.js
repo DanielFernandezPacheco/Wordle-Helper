@@ -47,7 +47,7 @@ function comprobar() {
             pos++;
         })
         palabraComprobada = true;
-        document.getElementById("num-palabras").innerHTML = palabras.length;
+        document.getElementById("num-palabras").innerHTML = palabras.length.toLocaleString("es-ES");
     }
 }
 
@@ -116,7 +116,7 @@ function cargarPalabras() {
 }
 
 var palabras = cargarPalabras()
-document.getElementById("num-palabras").innerHTML = palabras.length;
+document.getElementById("num-palabras").innerHTML = palabras.length.toLocaleString("es-ES");
 
 function acierto(letra, pos) {
     correctas.push(letra);
