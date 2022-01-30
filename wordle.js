@@ -2,7 +2,6 @@ var noPresentes = [];
 var presentes = [];
 var correctas = [];
 var palabraComprobada = true;
-window.scrollTo(0, 1); 
 
 function cambiarEstado(div) {
     if (div.classList.contains("bg-absent")) {
