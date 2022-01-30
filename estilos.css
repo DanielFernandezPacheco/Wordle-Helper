@@ -37,6 +37,12 @@ html {
     align-items: center;
     justify-content: center;
     color: rgb(255, 255, 255);
+    padding: 6px;
+}
+
+.contenedor-cuadricula{
+    max-width: 350px;
+    max-height: 350px;
 }
 body {
     margin: 0;
@@ -1944,8 +1950,7 @@ body {
 }
 
 .wrapper {
-    height: 100vh;
-    height: var(--app-height)
+    height: 92vh;
 }
 
 .colorblind {
