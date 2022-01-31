@@ -43,7 +43,7 @@ html {
 
 h1{
     text-align: center;
-    padding-top: 1.5%;
+    padding-top: 5%;
     width: 100%;
 }
 #num-palabras{
@@ -63,7 +63,16 @@ h1{
     justify-content: flex-end;
 
 }
+.contenedor-central{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding-top: 20px;
+    height:100%;
+
+}
 .contenedor-cuadricula{
+    margin-top: 50px;
     max-width: 350px;
     max-height: 420px;
 }
