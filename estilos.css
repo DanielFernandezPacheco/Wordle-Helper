@@ -38,11 +38,12 @@ html {
     align-items: center;
     column-gap: 0;
     justify-content: center;
-    min-width: fit-content
+    min-width: 20%;
 }
 
 h1{
     text-align: center;
+    padding-top: 1.5%;
     width: 100%;
 }
 #num-palabras{
