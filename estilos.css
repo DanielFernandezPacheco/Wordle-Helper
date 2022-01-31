@@ -39,11 +39,11 @@ html {
     column-gap: 0;
     justify-content: center;
     min-width: 20%;
-    
     padding: 5%;
 }
 
 h1{
+    font-size: 5px;
     text-align: center;
     padding: 5%;
     width: 100%;
@@ -69,8 +69,8 @@ h1{
     display:flex;
     justify-content:center;
     align-items:center;
-    padding-top: 20px;
-    height:100%;
+    padding-top: 30px;
+    padding-bottom: 20px;
 
 }
 .contenedor-cuadricula{
