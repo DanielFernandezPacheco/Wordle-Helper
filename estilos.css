@@ -58,9 +58,9 @@ h1{
     width: 100%;
 }
 
-#num-palabras{
+.num-palabras{
     font-size: 0.9em;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-weight: bold;
 }
 
@@ -93,27 +93,43 @@ h1{
     max-height: 350px;
 }
 
+#palabras-tab{
+    min-width: 50%;
+    height: 80%;
+    max-height: 300px;
+    min-height: 70px;
+    word-wrap: keep-all;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+}
 div#nav {
     position: fixed;
-    top: 100px;
+    top: 10px;
     right: 0px;
     margin: 0px;
-    padding: 20px 0px 0px;
-    background: #5681b4;
+    margin-right: -70%;
+    padding-left: 10px;
+    background: #fff;
     list-style: none;
     z-index: 9999;
-    width: 100px;
-    border-radius: 10px 0px 0px 10px
+    width: 70%;
+    border-radius: 3px 0px 0px 3px;
+    border: 2px solid rgb(182, 182, 182);
+    border-right-color: #fff;
   }
   
-  div#nav .nav-btn {
-    background: #5681b4;
-    border-radius: 10px 0px 0px 10px;
+   .nav-btn {
+    
+    background-color: rgb(106, 170, 100);   
+    border-width: 3px 0px 3px 3px;
+    border-color: rgb(182, 182, 182);
+    border-radius: 5px 0px 0px 5px;
     position: absolute;
     top: 10px;
-    left: -40px;
-    width: 40px;
-    height: 70px;
+    left: -70px;
+    width: 70px;
+    height: 60px;
     display: block;
     cursor: pointer;
   }

@@ -46,7 +46,8 @@ function comprobar() {
             pos++;
         })
         palabraComprobada = true;
-        document.getElementById("num-palabras").innerHTML = palabras.length.toLocaleString("es-ES");
+
+        actualizarNumPalabras();
     }
 }
 
@@ -108,14 +109,24 @@ function eliminarLetra() {
 
 function cargarPalabras() {
     var xhReq = new XMLHttpRequest();
-    xhReq.open("GET", "./english.json", false);
+    xhReq.open("GET", "./palabras.json", false);
     xhReq.send(null);
     return JSON.parse(xhReq.responseText);
-
 }
 
 var palabras = cargarPalabras()
-document.getElementById("num-palabras").innerHTML = palabras.length.toLocaleString("es-ES");
+actualizarNumPalabras();
+
+function actualizarNumPalabras(){
+    document.querySelectorAll('.num-palabras').forEach(function(element){
+        element.innerHTML = palabras.length.toLocaleString("es-ES");
+        console.log(1);
+    })
+    document.getElementById("palabras-tab").innerHTML = palabras.map(function(element){
+        return ' ' + element;
+    });
+}
+
 
 function acierto(letra, pos) {
     correctas.push(letra);
@@ -142,22 +153,22 @@ function posicion_incorrecta(letra, pos) {
 
 
 $(function() {
-    $('#nav').stop().animate({
-      'margin-right': '-100px'
-    }, 1000);
   
     function toggleDivs() {
       var $inner = $("#nav");
-      if ($inner.css("margin-right") == "-100px") {
+      if ($inner.css("margin-right") == "0px") {
+          console.log($inner.css("margin-right"))
         $inner.animate({
-          'margin-right': '0'
+          'margin-right': '-70%'
         });
-        $(".nav-btn").html('<img src="images/slide-out.png" alt="open" />')
+        $(".nav-btn").html('<span class="num-palabras">' + palabras.length.toLocaleString("es-ES") + '</span>');
       } else {
+          
+        console.log($inner.css("margin-right"))
         $inner.animate({
-          'margin-right': "-100px"
+          'margin-right': "0px"
         });
-        $(".nav-btn").html('<img src="images/slide-out.png" alt="close" />')
+        $(".nav-btn").html('>')
       }
     }
     $(".nav-btn").bind("click", function() {
