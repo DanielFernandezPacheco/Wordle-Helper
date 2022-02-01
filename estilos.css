@@ -103,9 +103,10 @@ h1{
     overflow-y: scroll;
 
 }
+
 div#nav {
     position: fixed;
-    top: 10px;
+    top: 0;
     right: 0px;
     margin: 0px;
     margin-right: -70%;
