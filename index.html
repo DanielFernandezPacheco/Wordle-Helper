@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -21,79 +21,48 @@
 
     <div class="dark:bg-dark dark:text-neutral-100 min-h-full">
         <div class="wrapper container mx-auto flex flex-col w-full max-w-lg">
-            <header
-                class="encabezado">
+            <header class="encabezado">
 
-                    <h1 class="uppercase font-bold text-xl tiny:text-3xl sm:text-4xl tracking-wider">Wordle Helper</h1>
+                <h1 class="uppercase font-bold text-xl tiny:text-3xl sm:text-4xl tracking-wider">Wordle Helper</h1>
 
                 <div class="icono-mostrar">
                     <span id="posibilidades">Posibilidades</span>
                     <span id="num-palabras"></span>
-                </div>                
+                </div>
             </header>
             <main class="contenedor-central">
 
-                <div class="contenedor-cuadricula grid grid-rows-6 relative gap-1 p-3 box-border w-full h-full">
-                    <div class="grid grid-cols-5 gap-1 w-full">
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-1" onclick="cambiarEstado(this)">A</div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-2" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-3" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-4" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-5" onclick="cambiarEstado(this)"></div>
-                    </div>
-                    <div class="grid grid-cols-5 gap-1 w-full">
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-6" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-7" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-8" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-9" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-10" onclick="cambiarEstado(this)"></div>
-                    </div>
-                    <div class="grid grid-cols-5 gap-1 w-full">
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-11" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-12" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-13" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-14" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-15" onclick="cambiarEstado(this)"></div>
-                    </div>
-                    <div class="grid grid-cols-5 gap-1 w-full">
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-16" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-17" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-18" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-19" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-20" onclick="cambiarEstado(this)"></div>
-                    </div>
-                    <div class="grid grid-cols-5 gap-1 w-full">
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-21" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-22" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-23" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-24" onclick="cambiarEstado(this)"></div>
-                        <div class="box w-full h-full inline-flex justify-center items-center text-2xl tiny:text-4xl uppercase font-bold select-none text-white"
-                            id="box-25" onclick="cambiarEstado(this)"></div>
-                    </div>
+                <div class="contenedor-cuadricula">
+                    <div class="box" id="box-1" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-2" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-3" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-4" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-5" onclick="cambiarEstado(this)"></div>
+
+                    <div class="box" id="box-6" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-7" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-8" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-9" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-10" onclick="cambiarEstado(this)"></div>
+
+                    <div class="box" id="box-11" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-12" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-13" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-14" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-15" onclick="cambiarEstado(this)"></div>
+
+                    <div class="box" id="box-16" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-17" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-18" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-19" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-20" onclick="cambiarEstado(this)"></div>
+
+                    <div class="box" id="box-21" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-22" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-23" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-24" onclick="cambiarEstado(this)"></div>
+                    <div class="box" id="box-25" onclick="cambiarEstado(this)"></div>
+
                 </div>
             </main>
 
