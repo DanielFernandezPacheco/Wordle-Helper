@@ -139,3 +139,29 @@ function posicion_incorrecta(letra, pos) {
         return palabra[pos] != letra && palabra.includes(letra);
     })
 }
+
+
+$(function() {
+    $('#nav').stop().animate({
+      'margin-right': '-100px'
+    }, 1000);
+  
+    function toggleDivs() {
+      var $inner = $("#nav");
+      if ($inner.css("margin-right") == "-100px") {
+        $inner.animate({
+          'margin-right': '0'
+        });
+        $(".nav-btn").html('<img src="images/slide-out.png" alt="open" />')
+      } else {
+        $inner.animate({
+          'margin-right': "-100px"
+        });
+        $(".nav-btn").html('<img src="images/slide-out.png" alt="close" />')
+      }
+    }
+    $(".nav-btn").bind("click", function() {
+      toggleDivs();
+    });
+  
+  });
