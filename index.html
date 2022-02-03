@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/estilos.css">
     <link rel="icon" href="./images/favicon.png">
     <script src="./scripts/jquery-3.6.0.min.js"></script>
-    
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6R1VDC3271"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -26,128 +26,130 @@
 <body>
 
     <div class="dark:bg-dark dark:text-neutral-100 min-h-full">
-        <div class="wrapper container mx-auto flex flex-col w-full max-w-lg">
-
-            <header class="encabezado">
-
-                <h1 class="uppercase font-bold text-xl tiny:text-3xl sm:text-4xl tracking-wider">Wordle Helper</h1>
-
-            </header>
-            <main class="contenedor-central">
-                <div id="nav">
-                    Hay <span class="num-palabras"></span> palabras posibles
-                    <hr>
-                    <div class="nav-btn">
-                        <span class="num-palabras"></span><br>
-                        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"> <svg xmlns="http://www.w3.org/2000/svg" class="flecha" width="0.20in" height="0.20in" viewBox="0 0 24 24"> <path id="Ruta importada" fill="white" stroke="none" stroke-width="1" d="M 22.65,10.12 C 22.65,10.12 22.69,10.13 22.69,10.13 22.69,10.13 6.63,10.13 6.63,10.13 6.63,10.13 11.68,5.07 11.68,5.07 11.92,4.82 12.06,4.48 12.06,4.13 12.06,3.78 11.92,3.45 11.68,3.20 11.68,3.20 10.89,2.42 10.89,2.42 10.64,2.17 10.32,2.03 9.96,2.03 9.61,2.03 9.28,2.17 9.04,2.42 9.04,2.42 0.38,11.07 0.38,11.07 0.13,11.32 -0.00,11.65 0.00,12.00 -0.00,12.35 0.13,12.68 0.38,12.93 0.38,12.93 9.04,21.58 9.04,21.58 9.28,21.83 9.61,21.97 9.96,21.97 10.32,21.97 10.64,21.83 10.89,21.58 10.89,21.58 11.68,20.80 11.68,20.80 11.92,20.55 12.06,20.22 12.06,19.87 12.06,19.52 11.92,19.21 11.68,18.96 11.68,18.96 6.57,13.87 6.57,13.87 6.57,13.87 22.67,13.87 22.67,13.87 23.39,13.87 24.00,13.25 24.00,12.53 24.00,12.53 24.00,11.42 24.00,11.42 24.00,10.69 23.37,10.12 22.65,10.12 Z" /> </svg>
-                    </div>
-                    <div id="palabras-tab"></div>
+        <header class="encabezado">
+            <h1 class="uppercase font-bold text-xl tiny:text-3xl sm:text-4xl tracking-wider">Wordle Helper</h1>
+        </header>
+        <main class="contenedor-central">
+            <div id="nav">
+                Hay <span class="num-palabras"></span> palabras posibles
+                <hr>
+                <div class="nav-btn">
+                    <span class="num-palabras"></span><br>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="flecha" width="0.20in" height="0.20in"
+                        viewBox="0 0 24 24">
+                        <path fill="white" stroke="none" stroke-width="1"
+                            d="M 22.65,10.12 C 22.65,10.12 22.69,10.13 22.69,10.13 22.69,10.13 6.63,10.13 6.63,10.13 6.63,10.13 11.68,5.07 11.68,5.07 11.92,4.82 12.06,4.48 12.06,4.13 12.06,3.78 11.92,3.45 11.68,3.20 11.68,3.20 10.89,2.42 10.89,2.42 10.64,2.17 10.32,2.03 9.96,2.03 9.61,2.03 9.28,2.17 9.04,2.42 9.04,2.42 0.38,11.07 0.38,11.07 0.13,11.32 -0.00,11.65 0.00,12.00 -0.00,12.35 0.13,12.68 0.38,12.93 0.38,12.93 9.04,21.58 9.04,21.58 9.28,21.83 9.61,21.97 9.96,21.97 10.32,21.97 10.64,21.83 10.89,21.58 10.89,21.58 11.68,20.80 11.68,20.80 11.92,20.55 12.06,20.22 12.06,19.87 12.06,19.52 11.92,19.21 11.68,18.96 11.68,18.96 6.57,13.87 6.57,13.87 6.57,13.87 22.67,13.87 22.67,13.87 23.39,13.87 24.00,13.25 24.00,12.53 24.00,12.53 24.00,11.42 24.00,11.42 24.00,10.69 23.37,10.12 22.65,10.12 Z" />
+                    </svg>
                 </div>
-                <div class="contenedor-cuadricula">
-
-                    <div class="box" id="box-1" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-2" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-3" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-4" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-5" onclick="cambiarEstado(this)"></div>
-
-                    <div class="box" id="box-6" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-7" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-8" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-9" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-10" onclick="cambiarEstado(this)"></div>
-
-                    <div class="box" id="box-11" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-12" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-13" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-14" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-15" onclick="cambiarEstado(this)"></div>
-
-                    <div class="box" id="box-16" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-17" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-18" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-19" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-20" onclick="cambiarEstado(this)"></div>
-
-                    <div class="box" id="box-21" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-22" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-23" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-24" onclick="cambiarEstado(this)"></div>
-                    <div class="box" id="box-25" onclick="cambiarEstado(this)"></div>
-
-                </div>
-            </main>
-
-            <div class="flex flex-col container w-full max-w-lg pb-2 md:pb-5 px-2 mx-auto gap-2">
-                <div class="fila-teclado"><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="q"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-q">q</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="w"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-w">w</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="e"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-e">e</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="r"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-r">r</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="t"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-t">t</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="y"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-y">y</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="u"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-u">u</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="i"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-i">i</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="o"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-o">o</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="p"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-p">p</button></div>
-                <div class="flex gap-1"><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="a"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-a">a</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="s"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-s">s</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="d"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-d">d</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="f"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-f">f</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="g"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-g">g</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="h"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-h">h</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="j"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-j">j</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="k"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-k">k</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="l"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-l">l</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="ñ"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-ñ">ñ</button></div>
-                <div class="flex gap-1">
-                    <button class="tick flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 bg-key"
-                        aria-label="procesar palabra" onclick="comprobar()">&#10003;</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="z"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-z">z</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="x"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-x">x</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="c"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-c">c</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="v"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-v">v</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="b"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-b">b</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="n"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-n">n</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="m"
-                        onclick="anadirLetra(this.innerHTML)" id="letra-m">m</button><button
-                        class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-1 text-sm bg-key"
-                        aria-label="borrar letra" onclick="eliminarLetra()"><svg xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"
-                            class="h-6 w-6 ml-1">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z">
-                            </path>
-                        </svg></button></div>
+                <div id="palabras-tab"></div>
             </div>
+            <div class="contenedor-cuadricula">
 
+                <div class="box" id="box-1" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-2" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-3" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-4" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-5" onclick="cambiarEstado(this)"></div>
+
+                <div class="box" id="box-6" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-7" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-8" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-9" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-10" onclick="cambiarEstado(this)"></div>
+
+                <div class="box" id="box-11" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-12" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-13" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-14" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-15" onclick="cambiarEstado(this)"></div>
+
+                <div class="box" id="box-16" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-17" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-18" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-19" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-20" onclick="cambiarEstado(this)"></div>
+
+                <div class="box" id="box-21" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-22" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-23" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-24" onclick="cambiarEstado(this)"></div>
+                <div class="box" id="box-25" onclick="cambiarEstado(this)"></div>
+
+            </div>
+        </main>
+
+        <div class="teclado">
+            <div class="fila-teclado">
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="q"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-q">q</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="w"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-w">w</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="e"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-e">e</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="r"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-r">r</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="t"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-t">t</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="y"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-y">y</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="u"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-u">u</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="i"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-i">i</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="o"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-o">o</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="p"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-p">p</button>
+            </div>
+            <div class="fila-teclado">
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="a"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-a">a</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="s"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-s">s</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="d"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-d">d</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="f"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-f">f</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="g"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-g">g</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="h"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-h">h</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="j"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-j">j</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="k"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-k">k</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="l"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-l">l</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="ñ"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-ñ">ñ</button>
+            </div>
+            <div class="fila-teclado">
+                <button class="tick flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 bg-key" aria-label="procesar palabra"
+                    onclick="comprobar()">&#10003;</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="z"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-z">z</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="x"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-x">x</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="c"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-c">c</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="v"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-v">v</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="b"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-b">b</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="n"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-n">n</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="m"
+                    onclick="anadirLetra(this.innerHTML)" id="letra-m">m</button>
+                <button class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-1 text-sm bg-key"  aria-label="borrar letra"
+                    onclick="eliminarLetra()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        aria-hidden="true" class="h-6 w-6 ml-1">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </div>
 
