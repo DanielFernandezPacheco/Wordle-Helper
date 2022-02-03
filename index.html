@@ -4,21 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="estilos.css">
     <script src="jquery-3.6.0.min.js"></script>
     <title>Wordle Helper</title>
 </head>
 
 <body>
-
-    <!--
-        bg-key
-        bg-absent
-        bg-correct
-        bg-present
-        text-white
-    -->
 
     <div class="dark:bg-dark dark:text-neutral-100 min-h-full">
         <div class="wrapper container mx-auto flex flex-col w-full max-w-lg">
@@ -73,7 +65,7 @@
             </main>
 
             <div class="flex flex-col container w-full max-w-lg pb-2 md:pb-5 px-2 mx-auto gap-2">
-                <div class="flex gap-1"><button
+                <div class="fila-teclado"><button
                         class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="q"
                         onclick="anadirLetra(this.innerHTML)" id="letra-q">q</button><button
                         class="flex-1 rounded uppercase font-bold p-1 sm:p-2 h-14 text-sm bg-key" aria-label="w"

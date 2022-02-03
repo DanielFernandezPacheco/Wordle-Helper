@@ -26,19 +26,16 @@ function comprobar() {
             if (!noPresentes.includes(letra)) {
                 if (box.classList.contains("bg-absent") && (!presentes.includes(letra) || !correctas.include(letra))) {
                     fallo(letra);
-                    console.log('fallo: ' + letra)
                     document.getElementById("letra-" + letra).classList.remove("bg-key");
                     document.getElementById("letra-" + letra).className += " bg-absent text-white";
                 }
                 else if (box.classList.contains("bg-present") && !correctas.includes(letra)) {
                     posicion_incorrecta(letra, pos);
-                    console.log('posicion: ' + letra)
                     document.getElementById("letra-" + letra).classList.remove("bg-key");
                     document.getElementById("letra-" + letra).className += " bg-present text-white";
                 }
                 else if (box.classList.contains("bg-correct")) {
                     acierto(letra, pos);
-                    console.log('acierto: ' + letra)
                     document.getElementById("letra-" + letra).classList.remove("bg-key");
                     document.getElementById("letra-" + letra).classList.remove("bg-present");
                     document.getElementById("letra-" + letra).className += " bg-correct text-white";
@@ -121,7 +118,6 @@ actualizarNumPalabras();
 function actualizarNumPalabras() {
     document.querySelectorAll('.num-palabras').forEach(function (element) {
         element.innerHTML = palabras.length.toLocaleString("es-ES");
-        console.log(1);
     })
 
     document.getElementById("palabras-tab").innerHTML = palabras.map(function (element) {
@@ -159,14 +155,12 @@ $(function () {
     function toggleDivs() {
         var $inner = $("#nav");
         if ($inner.css("margin-right") == "0px") {
-            console.log($inner.css("margin-right"))
+        
             $inner.animate({
                 'margin-right': '-70%'
             });
             $(".nav-btn").html('<span class="num-palabras">' + palabras.length.toLocaleString("es-ES") + '</span><br>&#x1F860;');
         } else {
-
-            console.log($inner.css("margin-right"))
             $inner.animate({
                 'margin-right': "0px"
             });
