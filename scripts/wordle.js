@@ -41,7 +41,7 @@ function comprobar() {
                     document.getElementById("letra-" + letra).className += " bg-correct text-white";
                 }
             }
-            
+
         }
         palabraComprobada = true;
 
@@ -94,20 +94,23 @@ function anadirLetra(letra) {
 }
 
 function eliminarLetra() {
-    if (lastBoxId > 0) {
-        id = "box-" + lastBoxId--;
-        box = document.getElementById(id);
-        box.innerHTML = "";
-        eliminarColor(box);
-        if (lastBoxId % 5 == 0) {
-            palabraComprobada = true
+    if (!palabraComprobada) {
+        if (lastBoxId > 0) {
+            id = "box-" + lastBoxId--;
+            box = document.getElementById(id);
+            box.innerHTML = "";
+            eliminarColor(box);
+            console.log(lastBoxId);
+            if (lastBoxId % 5 == 0) {
+                palabraComprobada = true
+            }
         }
     }
 }
 
 function cargarPalabras() {
     var xhReq = new XMLHttpRequest();
-    xhReq.open("GET", "./palabras.json", false);
+    xhReq.open("GET", "./json/palabras.json", false);
     xhReq.send(null);
     return JSON.parse(xhReq.responseText);
 }
@@ -155,7 +158,7 @@ $(function () {
     function toggleDivs() {
         var $inner = $("#nav");
         if ($inner.css("margin-right") == "0px") {
-        
+
             $inner.animate({
                 'margin-right': '-70%'
             });
