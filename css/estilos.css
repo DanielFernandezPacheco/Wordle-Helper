@@ -69,9 +69,12 @@ h1{
 }
 
 .encabezado{
+    
+    background-color: #f5f3ea;
     display:flex;
     flex-direction: row;
     justify-content: flex-end;
+    border-bottom: dashed 1px rgb(159, 159, 159);
 
 }
 .contenedor-central{
@@ -164,6 +167,12 @@ div#nav {
       display: flex;
       gap: .25rem;
   }
+
+  .flecha-cerrar{
+    transform: rotate(180deg);
+  }
+
+
 body {
     margin: 0;
     line-height: inherit
