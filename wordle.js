@@ -19,32 +19,33 @@ function cambiarEstado(div) {
 }
 
 function comprobar() {
-    var boxesPalabra = document.getElementById("box-" + lastBoxId).parentElement.querySelectorAll(".box");
-    let pos = 0;
-
     if (lastBoxId % 5 == 0) {
-        boxesPalabra.forEach(function (box) {
+        for (let pos = 0; pos < 5; pos++) {
+            box = document.getElementById("box-" + (lastBoxId - 4 + pos));
             let letra = box.innerHTML;
             if (!noPresentes.includes(letra)) {
                 if (box.classList.contains("bg-absent") && (!presentes.includes(letra) || !correctas.include(letra))) {
                     fallo(letra);
+                    console.log('fallo: ' + letra)
                     document.getElementById("letra-" + letra).classList.remove("bg-key");
                     document.getElementById("letra-" + letra).className += " bg-absent text-white";
                 }
                 else if (box.classList.contains("bg-present") && !correctas.includes(letra)) {
                     posicion_incorrecta(letra, pos);
+                    console.log('posicion: ' + letra)
                     document.getElementById("letra-" + letra).classList.remove("bg-key");
                     document.getElementById("letra-" + letra).className += " bg-present text-white";
                 }
                 else if (box.classList.contains("bg-correct")) {
                     acierto(letra, pos);
+                    console.log('acierto: ' + letra)
                     document.getElementById("letra-" + letra).classList.remove("bg-key");
                     document.getElementById("letra-" + letra).classList.remove("bg-present");
                     document.getElementById("letra-" + letra).className += " bg-correct text-white";
                 }
             }
-            pos++;
-        })
+            
+        }
         palabraComprobada = true;
 
         actualizarNumPalabras();
@@ -90,7 +91,7 @@ function anadirLetra(letra) {
             palabraComprobada = false;
         }
     }
-    if(lastBoxId % 5 == 0 && palabraComprobada) {
+    if (lastBoxId % 5 == 0 && palabraComprobada) {
         palabraComprobada = false
     }
 }
@@ -117,14 +118,15 @@ function cargarPalabras() {
 var palabras = cargarPalabras()
 actualizarNumPalabras();
 
-function actualizarNumPalabras(){
-    document.querySelectorAll('.num-palabras').forEach(function(element){
+function actualizarNumPalabras() {
+    document.querySelectorAll('.num-palabras').forEach(function (element) {
         element.innerHTML = palabras.length.toLocaleString("es-ES");
         console.log(1);
     })
-    document.getElementById("palabras-tab").innerHTML = palabras.map(function(element){
-        return ' ' + element;
-    });
+
+    document.getElementById("palabras-tab").innerHTML = palabras.map(function (element) {
+        return '<span>' + element.toUpperCase() + '</span>';
+    }).join('');
 }
 
 
@@ -152,27 +154,27 @@ function posicion_incorrecta(letra, pos) {
 }
 
 
-$(function() {
-  
+$(function () {
+
     function toggleDivs() {
-      var $inner = $("#nav");
-      if ($inner.css("margin-right") == "0px") {
-          console.log($inner.css("margin-right"))
-        $inner.animate({
-          'margin-right': '-70%'
-        });
-        $(".nav-btn").html('<span class="num-palabras">' + palabras.length.toLocaleString("es-ES") + '</span>');
-      } else {
-          
-        console.log($inner.css("margin-right"))
-        $inner.animate({
-          'margin-right': "0px"
-        });
-        $(".nav-btn").html('>')
-      }
+        var $inner = $("#nav");
+        if ($inner.css("margin-right") == "0px") {
+            console.log($inner.css("margin-right"))
+            $inner.animate({
+                'margin-right': '-70%'
+            });
+            $(".nav-btn").html('<span class="num-palabras">' + palabras.length.toLocaleString("es-ES") + '</span><br>&#x1F860;');
+        } else {
+
+            console.log($inner.css("margin-right"))
+            $inner.animate({
+                'margin-right': "0px"
+            });
+            $(".nav-btn").html('&#129122;')
+        }
     }
-    $(".nav-btn").bind("click", function() {
-      toggleDivs();
+    $(".nav-btn").bind("click", function () {
+        toggleDivs();
     });
-  
-  });
+
+});

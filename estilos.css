@@ -60,7 +60,6 @@ h1{
 
 .num-palabras{
     font-size: 0.9em;
-    color: rgb(0, 0, 0);
     font-weight: bold;
 }
 
@@ -93,6 +92,10 @@ h1{
     max-height: 350px;
 }
 
+.tick{
+    color: #198754;
+    font-size: 1.5rem;
+}
 #palabras-tab{
     min-width: 50%;
     height: 80%;
@@ -101,6 +104,8 @@ h1{
     word-wrap: keep-all;
     overflow-x: hidden;
     overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 
 }
 
@@ -121,17 +126,20 @@ div#nav {
   }
   
    .nav-btn {
-    
     background-color: rgb(106, 170, 100);   
-    border-width: 3px 0px 3px 3px;
+    border-width: 2px 0px 2px 2px;
     border-color: rgb(182, 182, 182);
     border-radius: 5px 0px 0px 5px;
+    color: #fff;
     position: absolute;
     top: 10px;
     left: -70px;
     width: 70px;
     height: 60px;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
   }
   
