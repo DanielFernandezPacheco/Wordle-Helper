@@ -30,23 +30,21 @@ function comprobar() {
                     fallo(letra);
                     document.getElementById("letra-" + letra).classList.remove("bg-key");
                     document.getElementById("letra-" + letra).className += " bg-absent text-white";
-                    box.classList.add("checked");
                 }
                 else if (box.classList.contains("bg-present") && !correctas.includes(letra)) {
                     posicion_incorrecta(letra, pos);
                     document.getElementById("letra-" + letra).classList.remove("bg-key");
                     document.getElementById("letra-" + letra).className += " bg-present text-white";
-                    box.classList.add("checked");
                 }
                 else if (box.classList.contains("bg-correct")) {
                     acierto(letra, pos);
                     document.getElementById("letra-" + letra).classList.remove("bg-key");
                     document.getElementById("letra-" + letra).classList.remove("bg-present");
                     document.getElementById("letra-" + letra).className += " bg-correct text-white";
-                    box.classList.add("checked");
                 }
             }
 
+            box.classList.add("checked");
         }
         palabraComprobada = true;
 
@@ -64,7 +62,7 @@ function eliminarColor(div) {
     else if (div.classList.contains("bg-correct")) {
         div.classList.remove("bg-correct");
     }
-    if(div.classList.contains("checked")){
+    if (div.classList.contains("checked")) {
         div.classList.remove("checked");
     }
 }
@@ -92,10 +90,10 @@ function anadirLetra(letra) {
             id = "box-" + ++lastBoxId;
             box = document.getElementById(id);
             box.innerHTML = letra;
-            if (correctas[(lastBoxId - 1) % 5] == letra){
+            if (correctas[(lastBoxId - 1) % 5] == letra) {
                 box.classList.add("bg-correct");
                 box.classList.add("checked");
-            }else box.classList.add("bg-absent");
+            } else box.classList.add("bg-absent");
             palabraComprobada = false;
         }
     }
