@@ -118,7 +118,7 @@ function eliminarLetra() {
 
 function cargarPalabras() {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "./json/palabras.json", false);
+    xhr.open("GET", "./json/english.json", false);
     xhr.send();
     return JSON.parse(xhr.responseText);
 }
