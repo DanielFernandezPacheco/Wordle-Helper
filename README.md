@@ -1,3 +1,3 @@
 # Wordle-Helper
 
-Aplicación web pensada para ayudar a resolver el juego Wordle, en español y en inglés
+Web App that helps the user to solve the Wordle game. (In spanish an english)
